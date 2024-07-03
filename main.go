@@ -28,7 +28,7 @@ type Station struct {
     count int
 }
 
-// var bufferSize = 2049
+var bufferSize = 2049
 
 func Solution(filename string) error {
     file, err := os.Open(filename)
@@ -36,7 +36,7 @@ func Solution(filename string) error {
         return fmt.Errorf("Failed to open %s: %s", filename, err.Error())
     }
 
-    // buffer := make([]byte, bufferSize + 1, bufferSize + 1)
+    buffer := make([]byte, bufferSize + 1, bufferSize + 1)
 
     var line string
     var splits []string
@@ -46,7 +46,7 @@ func Solution(filename string) error {
     var in bool
     stations := make(map[string]*Station)
     scanner := bufio.NewScanner(file)
-    // scanner.Buffer(buffer, bufferSize + 1)
+    scanner.Buffer(buffer, bufferSize + 1)
     for scanner.Scan() {
         line = scanner.Text()
         splits = strings.Split(line, ";")
@@ -78,9 +78,6 @@ func Solution(filename string) error {
     }
 
     stationNames := make([]*string, 0, len(stations))
-    for stationName := range stations {
-        stationNames = append(stationNames, &stationName)
-    }
 
     slices.SortStableFunc(stationNames, func(a *string, b *string) int {
         return strings.Compare(*a, *b)

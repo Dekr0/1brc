@@ -1,3 +1,17 @@
-# Version 0
+## Version 0.0.0 (3 minutes)
+
+### Runtime
 
 - 181.048s
+- 180.650s
+
+## Version 0.0.1
+
+### Improvement
+
+- Set buffer size for scanner
+
+### Runtime
+
+- 
+
